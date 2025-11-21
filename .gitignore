@@ -1,0 +1,39 @@
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Logs
+logs
+*.log
+*.log.*
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Runtime data
+dist/
+build/
+.env
+.env.local
+.env.*.local
+
+# Docker
+docker-compose.override.yml
+*.dockerignore
+docker-compose.override.yml
+docker-compose.override.yaml
+Dockerfile.dev
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Optional: Test coverage
+coverage/
