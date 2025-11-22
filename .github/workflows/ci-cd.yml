@@ -1,0 +1,40 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # خطوة 1: سحب الكود
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # خطوة 2: تثبيت Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      # خطوة 3: تثبيت الـ dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # خطوة 4: تشغيل الاختبارات
+      - name: Run tests
+        run: npm test
+
+      # خطوة 5: بناء صورة Docker (اختياري)
+      - name: Build Docker image
+        run: docker build -t devops-test-app .
+
+      # خطوة 6: تشغيل Docker Compose (اختياري)
+      - name: Run Docker Compose
+        run: docker compose up -d --build
